@@ -1,27 +1,42 @@
-const { application } = require('express');
-const express = require('express');
-const socketIO = require('socket.io');
-const PORT = process.env.PORT || 3002;
+require('dotenv').config()
 
 
+const cors = require('cors');
 
-const app = express()
+const express = require("express");
+const { createServer } = require("http");
+const { Server } = require("socket.io");
+
+const app = express();
+const httpServer = createServer(app);
+const io = new Server(httpServer, {
+  cors: {
+    origin: "http://localhost:3000",
+  }
+});
+
+
+// const corsOptions = {
+//   origin: process.env.CORS_ORIGIN,
+//   credentials: true,
+//   optionSuccessStatus: 200
+// }
+
+app.use(cors());
+
 
 app.get('/', (req, res) => {
   res.status(200).send('Hello world');
 });
 
-const server = app.listen(PORT, () => console.log(`Listening on ${PORT}`))
 
 
+io.on("connection", (socket) => {
+  console.log('socket connected', socket.id)
 
-  
-const io = socketIO(server);
+  socket.emit('Handshake')
+});
 
 
-
-io.on('connection', (socket) => {
-  console.log('Client connected with ad ID:', socket.id);
-  socket.on('disconnect', () => console.log('Client disconnected'));
-})
-
+httpServer.listen(process.env.PORT);
+// app.listen(3001);
