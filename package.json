@@ -1,0 +1,28 @@
+{
+  "engines": {
+    "node": "12.17.x"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.3",
+    "socket.io": "^4.4.1"
+  },
+  "name": "socket-io-hub",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ag961/socket-io-hub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ag961/socket-io-hub/issues"
+  },
+  "homepage": "https://github.com/ag961/socket-io-hub#readme"
+}
