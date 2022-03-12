@@ -1,18 +1,21 @@
 const { application } = require('express');
 const express = require('express');
 const socketIO = require('socket.io');
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 
 
-const server = express()
-  .listen(PORT, () => console.log(`Listening on ${PORT}`));
+const app = express()
 
-server.get('/', (req, res)=> {
-  res.status(200).send('I like pizza!')
-})
+app.get('/', (req, res) => {
+  res.status(200).send('Hello world');
+});
+
+const server = app.listen(PORT, () => console.log(`Listening on ${PORT}`))
 
 
+
+  
 const io = socketIO(server);
 
 
