@@ -3,7 +3,7 @@
     "node": "12.17.x"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "express": "^4.17.3",
@@ -12,7 +12,7 @@
   "name": "socket-io-hub",
   "description": "",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "index.js",
   "devDependencies": {},
   "repository": {
     "type": "git",
